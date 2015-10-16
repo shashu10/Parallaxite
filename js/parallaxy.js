@@ -18,23 +18,12 @@ function setup()
 	var platform = navigator.platform.toLowerCase();
 	var userAgent = navigator.userAgent.toLowerCase();
 	
-	if ( platform.indexOf('ipad') != -1  ||  platform.indexOf('iphone') != -1 ) 
+	if ( platform.indexOf('ipad') != -1  ||  platform.indexOf('iphone') != -1 || platform.indexOf('android') != -1 ) 
 	{
 		isTouchscreen = 1;
 		body.setAttribute("class", "touch");
 		// body.style.backgroundImage = 'none';
 	}
-	
-	else if (platform.indexOf('win32') != -1 || platform.indexOf('linux') != -1)
-	{
-		isTouchscreen = 0;
-						
-		if ($.browser.webkit)
-		{
-			$.srSmoothscroll();
-		}
-	}
-	
 	else
 	{
 		$.srSmoothscroll();
