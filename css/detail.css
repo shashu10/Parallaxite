@@ -1,9 +1,12 @@
 
 /* Detailed View */
-
-
+html.detail {
+	height: 100%;
+}
+html.detail body {
+	height: 100%;
+}
 .close {
-	display: none;
 	color: #777;
 	padding: 20px;
 	cursor: pointer;
@@ -22,7 +25,6 @@
 
 #detail {
 	display: none;
-    position: fixed;
     z-index: 20;
     top: 0px;
     left: 0px;

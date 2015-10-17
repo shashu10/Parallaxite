@@ -1,24 +1,26 @@
 // Detailed view paging, and showing/hiding
 
-var resizeTimer;
 var scroll;
 
 function close () {
 	$("#detail").hide();
-	$(".close").hide();
-	$('body').css("position", "relative");
-
-
+	$('#container').show();
+	$('html').removeClass("detail");
+	$(location).attr("hash", "");
 	$(window).scrollTop(scroll);
 }
 
 function show (title) {
+	$("#detail").show();
+	$('#container').hide();
+	$('html').addClass("detail");
+
 	$(".entry").each(function () {
 		$(this)
 		.removeClass("visible")
 		.addClass("hidden");
 
-		if ($(this).attr("title") == title) {
+		if ($(this).attr("data-title") == title) {
 			$(this)
 			.addClass("visible")
 			.removeClass("hidden");
@@ -124,15 +126,18 @@ $(function() {
 	$(".boxInner").click(function (e) {
 
 		scroll = $(window).scrollTop();
-
-		$("#detail").show();
-		$(".close").show();
-		$('body').css("position", "fixed");
-		var title = $(this).attr("title");
+		var title = $(this).attr("data-title");
+		$(location).attr("hash", "#" + title);
 		show(title);
-
-		// document.getElementById('detail').contentWindow.postMessage(title, '*');
 	});
+
+	// Show detail on pageload if entered with url
+	// http://shashank.bio/#highlighter
+	var detail = $(location).attr("hash");
+	if (detail.length > 0) {
+		console.log($(location).attr("hash").substring(1));
+		show($(location).attr("hash").substring(1));
+	}
 
 	$(".close").click(close);
 
