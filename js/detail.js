@@ -3,16 +3,21 @@
 var scroll;
 
 function close () {
-	$("#detail").hide();
-	$('#container').show();
+	$("#detail-container").addClass("hidden");
+	$('#container').removeClass("hidden");
+
 	$('html').removeClass("detail");
 	$(location).attr("hash", "");
 	$(window).scrollTop(scroll);
 }
 
 function show (title) {
-	$("#detail").show();
-	$('#container').hide();
+	$("#detail-container").removeClass("hidden");
+	$('#container').addClass("hidden");
+
+	$(".pager").show();
+	$(".close").show();
+
 	$('html').addClass("detail");
 
 	$(".entry").each(function () {
