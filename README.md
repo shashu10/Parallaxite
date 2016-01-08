@@ -1,5 +1,7 @@
 # Parallaxite
 
+Demo here http://shashank.bio/
+
 A portfolio website with CSS only grid and a large parallax header.
 
 Inspired by http://www.firewatchgame.com/ which is absolutely stunning.
